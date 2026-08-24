@@ -12,6 +12,11 @@ A desigualdade territorial na saúde mineira não está principalmente no *quant
 
 O caso mais nítido é a macrorregião Nordeste: **primeiro lugar do estado em leitos SUS por habitante (2,61 por mil) e último em UTI (0,85 por 10 mil)**. Apenas 3,3% dos seus leitos são de terapia intensiva, contra 16,1% no Vale do Aço. Quem precisa de UTI ali depende de deslocamento.
 
+A dispersão separa dois problemas distintos. No canto inferior direito está a inversão: regiões com volume de leitos acima da média e capacidade de UTI abaixo — Nordeste, e em menor grau Jequitinhonha. A rede existe, falta complexidade. No canto inferior esquerdo está a escassez uniforme: Noroeste, Norte e Leste, abaixo da média nas duas dimensões. São situações que exigem respostas diferentes — qualificar a rede existente, num caso; ampliá-la, no outro.
+
+Este achado sobreviveu a duas revisões metodológicas que desfizeram conclusões anteriores. A primeira versão da análise, feita por município, sugeria que metade de Minas Gerais era um vazio assistencial. A segunda, agregada por região mas usando população total como denominador, indicava que as regiões mais pobres tinham mais leitos SUS por habitante — resultado que se dissolveu quando o
+denominador foi corrigido conforme a metodologia do Ministério da Saúde. A desigualdade em complexidade, ao contrário, aumentou sob a mesma correção.
+
 ---
 
 ## Panorama por macrorregião
@@ -38,6 +43,10 @@ Competência 06/2026. Taxas calculadas sobre a população dependente do SUS —
 | Sudeste | 24,0% | 2,65 | 3,16 | 11,9% | 60,4% |
 
 A coluna de cobertura mostra por que a correção importa: a proporção da população com plano privado varia de 7,7% no Nordeste a 39,5% no Centro — mais de cinco vezes.
+
+![Leitos gerais e UTI por macrorregião](figuras/leitos_vs_uti.png)
+
+![Volume e complexidade por macrorregião](figuras/dispersao_leitos_uti.png)
 
 ---
 
@@ -90,6 +99,8 @@ A planilha da SES-MG cobre os 853 municípios do estado, distribuídos em 89 mic
 **Chave de junção: código DATASUS de 6 dígitos.** O campo `CO_IBGE` do CNES usa o código municipal sem o dígito verificador, enquanto o código IBGE completo tem 7 dígitos. A planilha da SES-MG traz as duas versões e o arquivo da ANS usa o de 6, permitindo junção direta sem conversão. Validado: nenhum registro ficou sem correspondência nas três bases.
 
 **Competência 06/2026 para o retrato principal.** Cada estabelecimento aparece uma vez por competência. As seis competências disponíveis permitem observar variação ao longo do primeiro semestre.
+
+**Duas métricas separadas, não um índice combinado.** Seria possível resumir volume e complexidade num único indicador, mas isso apagaria o achado central: uma região com muitos leitos gerais e pouca UTI produziria um valor médio, indistinguível de uma região mediana nas duas dimensões. São situações clinicamente e administrativamente distintas. O Nordeste é o caso extremo — primeiro em volume, último em complexidade — e qualquer agregação o colocaria no meio da distribuição.
 
 ---
 
@@ -170,6 +181,8 @@ O `nrows` corta as linhas de fonte e totalização no rodapé de cada arquivo. N
 ├── notebooks/
 │   └── 01-exploracao.ipynb
 ├── figuras/
+│   ├── leitos_vs_uti.png
+│   └── dispersao_leitos_uti.png
 └── README.md
 ```
 
